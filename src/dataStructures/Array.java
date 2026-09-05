@@ -1,3 +1,5 @@
+package dataStructures;
+
 public class Array<E> {
     private E[] data;
     private int size;
@@ -65,12 +67,13 @@ public class Array<E> {
 
     public void delete(int position) {
         // O(n) complexity
-        if (position < 0 || position > size) {
+        if (position < 0 || position >= size) {
             throw new IndexOutOfBoundsException();
         }
-        for (int i = position; i < size; i++) {
+        for (int i = position; i < size - 1; i++) {
             data[i] = data[i + 1];
         }
+        data[size - 1] = null;
         size--;
     }
 
