@@ -14,6 +14,10 @@ public class SLL<E> implements Iterable<E> {
         return head;
     }
 
+    public void setHead(SLLNode<E> head) {
+        this.head = head;
+    }
+
     @Override
     public String toString() {
         // O(n) complexity - it goes through them all, if we had String instead of StringBuilder, it would have been O(n^2) technically
@@ -210,6 +214,63 @@ public class SLL<E> implements Iterable<E> {
 
             return data;
         }
+    }
+
+    public SLLNode<E> reverselist(SLLNode<E> node) {
+        SLLNode<E> prev = null, curr = node, next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        node = prev;
+        return node;
+    }
+
+    public void rearrange() {
+        //1) Наjди jа средината на листата
+        SLLNode<E> sredina = this.getHead();
+        for (int i = 1; i < this.size() / 2; i++)
+            sredina = sredina.next;
+        System.out.println(sredina.data);
+
+        //2) Подели jа листата на две половини
+        //node1, првиот jазел од првата половина 1 -> 2 -> 3
+        //node2, првиот jазел од втората половина 4 -> 5
+        SLLNode<E> node1 = this.getHead();
+        SLLNode<E> node2 = sredina.next;
+        sredina.next = null;
+
+        //3) Преврти jа втората половина т.е. 5 -> 4
+
+        node2 = reverselist(node2);
+
+        //4) Наизменично споjуваj ги jазлите
+        SLLNode<E> node = new SLLNode<E>(null, null); //помошен jазoл
+
+        // curr е покажувачот на помошниот jазол
+        // од каде ´ке се формира новата листа
+        SLLNode<E> curr = node;
+        while (node1 != null || node2 != null) {
+
+            // Прво додаj jазол од првата листа
+            if (node1 != null) {
+                curr.next = node1;
+                curr = curr.next;
+                node1 = node1.next;
+            }
+
+            // Па додаj jазол од втората листа
+            if (node2 != null) {
+                curr.next = node2;
+                curr = curr.next;
+                node2 = node2.next;
+            }
+        }
+
+        // Отстрани го помошниот jазел
+        node = node.next;
     }
 
 }
