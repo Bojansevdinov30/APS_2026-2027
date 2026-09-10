@@ -23,6 +23,36 @@ package book._01_Introduction;
  * pri nasleduvanje se pravi so extends.
  */
 public final class IntroductionNotes {
+    public static int stepen1(int n, int k) {
+        // O(n) recursion complexity
+        if (k == 0) return 1;
+        else {
+            return n * stepen1(n, k - 1);
+        }
+    }
+
+    public static int stepen2(int n, int k) {
+        // O(logn) recursion complexity
+        // eden call(n/2) dava logn ako sekoj od tie callovi e O(1)
+        if (k == 0) return 1;
+        else if (k % 2 == 0) {
+            return stepen2(n * n, k / 2);
+        } else {
+            return n * stepen2(n * n, (k - 1) / 2);
+        }
+    }
+
+    public static int stepen3(int n, int k) {
+        // O(n) recursion complexity
+        if (k == 0) return 1;
+
+        else if (k % 2 == 0) {
+            return stepen3(n, k / 2) * stepen3(n, k / 2);
+        } else {
+            return n * stepen3(n * n, (k - 1) / 2) * stepen3(n * n, (k - 1) / 2);
+        }
+
+    }
 
     private IntroductionNotes() {
     }
