@@ -24,8 +24,8 @@ public class Auds1_ex4 {
 
         SLLNode<String> temp = names.getHead();
         while (temp != null) {
-            System.out.println(temp.getData());
-            temp = temp.getNext();
+            System.out.println(temp.getElement());
+            temp = temp.getSucc();
         }
     }
 }

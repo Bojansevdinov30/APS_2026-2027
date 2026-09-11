@@ -107,7 +107,7 @@ public class Array<E> {
         StringBuilder str = new StringBuilder("{ ");
 
         for (int i = 0; i < size; i++) {
-            str.append(data[i]).append(" ");
+            str.append(element[i]).append(" ");
         }
 
         str.append("}");

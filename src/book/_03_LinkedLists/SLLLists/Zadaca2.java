@@ -24,32 +24,32 @@ public class Zadaca2{
     public static void swapNodes(SLL<Integer> list) {
         SLLNode<Integer> current = list.getHead();
 
-        if (current == null || current.getNext() == null) {
+        if (current == null || current.getSucc() == null) {
             return;
         }
 
         SLLNode<Integer> previous = null;
 
-        while (current != null && current.getNext() != null) {
+        while (current != null && current.getSucc() != null) {
 
-            SLLNode<Integer> second = current.getNext();
-            SLLNode<Integer> afterPair = second.getNext();
+            SLLNode<Integer> second = current.getSucc();
+            SLLNode<Integer> afterPair = second.getSucc();
 
             // Swap current and second
-            second.setNext(current);
-            current.setNext(afterPair);
+            second.setSucc(current);
+            current.setSucc(afterPair);
 
             // Connect previous pair to this pair
             if (previous == null) {
                 list.setHead(second);
             } else {
-                previous.setNext(second);
+                previous.setSucc(second);
             }
 
             // current is now the second node of the swapped pair
             previous = current;
 
-            // move to the next pair
+            // move to the succ pair
             current = afterPair;
         }
     }

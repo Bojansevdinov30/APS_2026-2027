@@ -101,7 +101,7 @@ public class Zadaca8 {
         DLLNode<Integer> before2 = start2.getPred();
         DLLNode<Integer> after2 = end2.getSucc();
 
-        // Special case: intervals are directly next to each other
+        // Special case: intervals are directly succ to each other
         if (after1 == start2) {
 
             if (before1 != null) {

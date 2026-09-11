@@ -11,10 +11,10 @@ public class Zadaca1 {
         SLLNode<Integer> temp = null;
         SLLNode<Integer> curr =  sll.getHead();
         while(curr != null){
-            if(curr.getData().equals(numberToDelete)){
+            if(curr.getElement().equals(numberToDelete)){
                 temp = curr;
             }
-            curr = curr.getNext();
+            curr = curr.getSucc();
         }
         sll.delete(temp);
     }

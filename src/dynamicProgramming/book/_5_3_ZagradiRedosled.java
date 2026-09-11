@@ -79,7 +79,7 @@ public class _5_3_ZagradiRedosled {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
-        String bitniza = scn.next();
+        String bitniza = scn.succ();
 
         Avalues = new int[n + 1][n + 1];
 

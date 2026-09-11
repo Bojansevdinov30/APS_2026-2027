@@ -28,11 +28,11 @@ public class Lab1_ex3_VleznaExample {
 
         for (int i = 0; i < n && curr != null; i++) {
 
-            // Save next BEFORE changing the list
-            SLLNode<String> next = curr.getNext();
+            // Save succ BEFORE changing the list
+            SLLNode<String> next = curr.getSucc();
 
-            if (Character.isLowerCase(curr.getData().charAt(0))) {
-                list.insertLast(curr.getData());
+            if (Character.isLowerCase(curr.getElement().charAt(0))) {
+                list.insertLast(curr.getElement());
                 list.delete(curr);
             }
 

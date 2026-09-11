@@ -22,9 +22,9 @@ public class Zadaca7 {
 
             // Take up to 2 nodes from the first list
             for (int i = 0; i < 2 && first != null; i++) {
-                SLLNode<Integer> next = first.getNext();
+                SLLNode<Integer> next = first.getSucc();
 
-                last.setNext(first);
+                last.setSucc(first);
                 last = first;
 
                 first = next;
@@ -32,9 +32,9 @@ public class Zadaca7 {
 
             // Take up to 2 nodes from the second list
             for (int i = 0; i < 2 && second != null; i++) {
-                SLLNode<Integer> next = second.getNext();
+                SLLNode<Integer> next = second.getSucc();
 
-                last.setNext(second);
+                last.setSucc(second);
                 last = second;
 
                 second = next;
@@ -43,20 +43,20 @@ public class Zadaca7 {
 
         // Remaining nodes from the FIRST list
         if (first != null) {
-            last.setNext(first);
+            last.setSucc(first);
 
-            while (last.getNext() != null) {
-                last = last.getNext();
+            while (last.getSucc() != null) {
+                last = last.getSucc();
             }
         }
 
         // Remaining nodes from the SECOND list
         if (second != null) {
-            last.setNext(second);
+            last.setSucc(second);
         }
 
         SLL<Integer> result = new SLL<>();
-        result.setHead(dummy.getNext());
+        result.setHead(dummy.getSucc());
 
         return result;
     }

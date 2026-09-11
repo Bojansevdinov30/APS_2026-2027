@@ -45,7 +45,7 @@ public class Zadaca2 {
                     j++;
                     break;
                 } else {
-                    // go to the next larger cookie
+                    // go to the succ larger cookie
                     j++;
                 }
             }

@@ -1,27 +1,27 @@
 package dataStructures;
 
 public class SLLNode<E> {
-    protected E data;
-    protected SLLNode<E> next; // SE E PO REFERENCA
+    protected E element;
+    protected SLLNode<E> succ; // SE E PO REFERENCA
 
-    public SLLNode(E data, SLLNode<E> next) {
-        this.data = data;
-        this.next = next;
+    public SLLNode(E element, SLLNode<E> succ) {
+        this.element = element;
+        this.succ = succ;
     }
 
-    public E getData() {
-        return data;
+    public E getElement() {
+        return element;
     }
 
-    public SLLNode<E> getNext() {
-        return next;
+    public SLLNode<E> getSucc() {
+        return succ;
     }
 
-    public void setData(E data) {
-        this.data = data;
+    public void setElement(E element) {
+        this.element = element;
     }
 
-    public void setNext(SLLNode<E> next) {
-        this.next = next;
+    public void setSucc(SLLNode<E> succ) {
+        this.succ = succ;
     }
 }

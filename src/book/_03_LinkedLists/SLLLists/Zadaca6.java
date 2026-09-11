@@ -35,19 +35,19 @@ public class Zadaca6 {
 
             // Leave nodesToSkip nodes
             for (int i = 1; i < nodesToSkip && curr != null; i++) {
-                curr = curr.getNext();
+                curr = curr.getSucc();
             }
 
             // If there is no node after curr, there is nothing left to delete
-            if (curr == null || curr.getNext() == null) {
+            if (curr == null || curr.getSucc() == null) {
                 break;
             }
 
             // Delete the node after curr
-            curr.setNext(curr.getNext().getNext());
+            curr.setSucc(curr.getSucc().getSucc());
 
             // Continue from the first node after the deleted one
-            curr = curr.getNext();
+            curr = curr.getSucc();
 
             nodesToSkip++;
         }

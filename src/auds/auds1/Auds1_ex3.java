@@ -16,23 +16,23 @@ public class Auds1_ex3 {
         SLLNode<E> temp2 = secondList.getHead();
 
         while (temp1 != null && temp2 != null) {
-            if (temp1.getData().compareTo(temp2.getData()) < 0) {
-                result.insertLast(temp1.getData());
-                temp1 = temp1.getNext();
+            if (temp1.getElement().compareTo(temp2.getElement()) < 0) {
+                result.insertLast(temp1.getElement());
+                temp1 = temp1.getSucc();
             } else {
-                result.insertLast(temp2.getData());
-                temp2 = temp2.getNext();
+                result.insertLast(temp2.getElement());
+                temp2 = temp2.getSucc();
             }
         }
 
         while (temp1 != null) {
-            result.insertLast(temp1.getData());
-            temp1 = temp1.getNext();
+            result.insertLast(temp1.getElement());
+            temp1 = temp1.getSucc();
         }
 
         while (temp2 != null) {
-            result.insertLast(temp2.getData());
-            temp2 = temp2.getNext();
+            result.insertLast(temp2.getElement());
+            temp2 = temp2.getSucc();
         }
 
         return result;

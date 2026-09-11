@@ -42,24 +42,24 @@ public class Zadaca5 {
         SLLNode<Integer> max = list.getHead();
         SLLNode<Integer> temp = list.getHead();
         while (temp != null) {
-            if (temp.getData() < min.getData()) {
+            if (temp.getElement() < min.getElement()) {
                 min = temp;
             }
-            if (temp.getData() > max.getData()) {
+            if (temp.getElement() > max.getElement()) {
                 max = temp;
             }
-            temp = temp.getNext();
+            temp = temp.getSucc();
         }
         temp  = list.getHead();
         SLL<Integer> minList = new SLL<>();
         SLL<Integer> maxList = new SLL<>();
         while (temp != null) {
-            if (Math.abs(temp.getData() - min.getData()) <=  Math.abs(temp.getData() - max.getData())) {
-                minList.insertLast(temp.getData());
-            }else if (Math.abs(temp.getData() - min.getData()) > Math.abs(temp.getData() - max.getData())) {
-                maxList.insertLast(temp.getData());
+            if (Math.abs(temp.getElement() - min.getElement()) <=  Math.abs(temp.getElement() - max.getElement())) {
+                minList.insertLast(temp.getElement());
+            }else if (Math.abs(temp.getElement() - min.getElement()) > Math.abs(temp.getElement() - max.getElement())) {
+                maxList.insertLast(temp.getElement());
             }
-            temp = temp.getNext();
+            temp = temp.getSucc();
         }
 
         System.out.println(minList.toString());

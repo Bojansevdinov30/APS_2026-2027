@@ -26,10 +26,10 @@ public class SLL<E> implements Iterable<E> {
         }
         StringBuilder ret = new StringBuilder();
         SLLNode<E> curr = this.head;
-        ret.append(curr.data);
-        while (curr.next != null) {
-            curr = curr.next;
-            ret.append(" -> ").append(curr.data);
+        ret.append(curr.element);
+        while (curr.succ != null) {
+            curr = curr.succ;
+            ret.append(" -> ").append(curr.element);
         }
         return ret.toString();
     }
@@ -43,8 +43,8 @@ public class SLL<E> implements Iterable<E> {
     public void insertAfter(E object, SLLNode<E> node) {
         // O(1) complexity
         if (node != null) {
-            SLLNode<E> ins = new SLLNode<E>(object, node.next);
-            node.next = ins;
+            SLLNode<E> ins = new SLLNode<E>(object, node.succ);
+            node.succ = ins;
         } else {
             System.out.println("Dadeniot jazol e null!");
         }
@@ -56,10 +56,10 @@ public class SLL<E> implements Iterable<E> {
             insertFirst(object);
         } else {
             SLLNode<E> temp = head;
-            while (temp.next != null) {
-                temp = temp.next;
+            while (temp.succ != null) {
+                temp = temp.succ;
             }
-            temp.next = new SLLNode<E>(object, null);
+            temp.succ = new SLLNode<E>(object, null);
         }
     }
 
@@ -71,11 +71,11 @@ public class SLL<E> implements Iterable<E> {
                 return;
             }
             SLLNode<E> curr = head;
-            while (curr.next != node && curr.next != null) {
-                curr = curr.next;
+            while (curr.succ != node && curr.succ != null) {
+                curr = curr.succ;
             }
-            if (curr.next == node) {
-                curr.next = new SLLNode<E>(object, node);
+            if (curr.succ == node) {
+                curr.succ = new SLLNode<E>(object, node);
             } else {
                 System.out.println("Elementot ne postoi vo nizata!");
             }
@@ -91,8 +91,8 @@ public class SLL<E> implements Iterable<E> {
             return null;
         }
         SLLNode<E> temp = head;
-        head = head.next;
-        return temp.data;
+        head = head.succ;
+        return temp.element;
     }
 
     public E delete(SLLNode<E> node) {
@@ -105,12 +105,12 @@ public class SLL<E> implements Iterable<E> {
             return this.deleteFirst();
         }
         SLLNode<E> curr = head;
-        while (curr.next != node && curr.next != null) {
-            curr = curr.next;
+        while (curr.succ != node && curr.succ != null) {
+            curr = curr.succ;
         }
-        if (curr.next == node) {
-            curr.next = curr.next.next;
-            return node.data;
+        if (curr.succ == node) {
+            curr.succ = curr.succ.succ;
+            return node.element;
         } else {
             System.out.println("Elementot ne postoi vo nizata!");
             return null;
@@ -124,7 +124,7 @@ public class SLL<E> implements Iterable<E> {
 
         while (curr != null) {
             count++;
-            curr = curr.next;
+            curr = curr.succ;
         }
 
         return count;
@@ -137,10 +137,10 @@ public class SLL<E> implements Iterable<E> {
             return null;
         }
         SLLNode<E> curr = head;
-        while (!curr.data.equals(object) && curr.next != null) {
-            curr = curr.next;
+        while (!curr.element.equals(object) && curr.succ != null) {
+            curr = curr.succ;
         }
-        if (curr.data.equals(object)) {
+        if (curr.element.equals(object)) {
             return curr;
         } else {
             System.out.println("Elementot ne postoi vo nizata!");
@@ -154,10 +154,10 @@ public class SLL<E> implements Iterable<E> {
             head = in.getHead();
         }
         SLLNode<E> curr = head;
-        while (curr.next != null) {
-            curr = curr.next;
+        while (curr.succ != null) {
+            curr = curr.succ;
         }
-        curr.next = in.getHead();
+        curr.succ = in.getHead();
     }
 
     public void deleteList(){
@@ -173,8 +173,8 @@ public class SLL<E> implements Iterable<E> {
             SLLNode<E> next;
 
             while (temp != null) {
-                next = temp.next;
-                temp.next = newSucc;
+                next = temp.succ;
+                temp.succ = newSucc;
                 newSucc = temp;
                 temp = next;
             }
@@ -209,8 +209,8 @@ public class SLL<E> implements Iterable<E> {
                 throw new NoSuchElementException();
             }
 
-            E data = current.data;
-            current = current.next;
+            E data = current.element;
+            current = current.succ;
 
             return data;
         }
@@ -219,8 +219,8 @@ public class SLL<E> implements Iterable<E> {
     public SLLNode<E> reverselist(SLLNode<E> node) {
         SLLNode<E> prev = null, curr = node, next;
         while (curr != null) {
-            next = curr.next;
-            curr.next = prev;
+            next = curr.succ;
+            curr.succ = prev;
             prev = curr;
             curr = next;
         }
@@ -232,15 +232,15 @@ public class SLL<E> implements Iterable<E> {
         //1) Наjди jа средината на листата
         SLLNode<E> sredina = this.getHead();
         for (int i = 1; i < this.size() / 2; i++)
-            sredina = sredina.next;
-        System.out.println(sredina.data);
+            sredina = sredina.succ;
+        System.out.println(sredina.element);
 
         //2) Подели jа листата на две половини
         //node1, првиот jазел од првата половина 1 -> 2 -> 3
         //node2, првиот jазел од втората половина 4 -> 5
         SLLNode<E> node1 = this.getHead();
-        SLLNode<E> node2 = sredina.next;
-        sredina.next = null;
+        SLLNode<E> node2 = sredina.succ;
+        sredina.succ = null;
 
         //3) Преврти jа втората половина т.е. 5 -> 4
 
@@ -256,21 +256,21 @@ public class SLL<E> implements Iterable<E> {
 
             // Прво додаj jазол од првата листа
             if (node1 != null) {
-                curr.next = node1;
-                curr = curr.next;
-                node1 = node1.next;
+                curr.succ = node1;
+                curr = curr.succ;
+                node1 = node1.succ;
             }
 
             // Па додаj jазол од втората листа
             if (node2 != null) {
-                curr.next = node2;
-                curr = curr.next;
-                node2 = node2.next;
+                curr.succ = node2;
+                curr = curr.succ;
+                node2 = node2.succ;
             }
         }
 
         // Отстрани го помошниот jазел
-        node = node.next;
+        node = node.succ;
     }
 
 }

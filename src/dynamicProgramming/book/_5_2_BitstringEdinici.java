@@ -85,7 +85,7 @@ public class _5_2_BitstringEdinici {
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
         int m = scn.nextInt();
-        String bitniza = scn.next();
+        String bitniza = scn.succ();
 
         Avalues = new int[n + 1][m + 1];
 

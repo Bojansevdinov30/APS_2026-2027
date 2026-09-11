@@ -10,13 +10,13 @@ public class Lab1_ex2 {
         SLLNode<String> tmp = list.getHead();
         SLLNode<String> prev = list.getHead();
         for (int i = 0; i < list.size(); i++) {
-            if (tmp.getData().length() == l){
+            if (tmp.getElement().length() == l){
                 prev = tmp;
-                list.insertLast(tmp.getData());
+                list.insertLast(tmp.getElement());
                 list.delete(tmp);
-                tmp = prev.getNext();
+                tmp = prev.getSucc();
             }
-            else tmp = tmp.getNext();
+            else tmp = tmp.getSucc();
         }
     }
 

@@ -40,18 +40,18 @@ public class Zadaca3 {
         SLLNode<Integer> temp = lista.getHead();
 
         while (temp != null) {
-            while (temp.getNext() != null && temp.getData() %2 == 0 && temp.getNext().getData() % 2 ==0) {
-                temp = temp.getNext();
+            while (temp.getSucc() != null && temp.getElement() %2 == 0 && temp.getSucc().getElement() % 2 ==0) {
+                temp = temp.getSucc();
             }
-            while (temp.getNext() != null && temp.getData() %2 != 0 && temp.getNext().getData() % 2 !=0) {
-                temp = temp.getNext();
+            while (temp.getSucc() != null && temp.getElement() %2 != 0 && temp.getSucc().getElement() % 2 !=0) {
+                temp = temp.getSucc();
             }
-            if (temp.getData() % 2 == 0){
-                parni.insertLast(temp.getData());
+            if (temp.getElement() % 2 == 0){
+                parni.insertLast(temp.getElement());
             }else {
-                neparni.insertLast(temp.getData());
+                neparni.insertLast(temp.getElement());
             }
-            temp = temp.getNext();
+            temp = temp.getSucc();
 
         }
         System.out.println(parni.toString());
