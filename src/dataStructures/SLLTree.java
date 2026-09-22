@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 public class SLLTree<E> implements Tree<E> {
 
     // SLLNode is the implementation of the Node interface
-    static class SLLNode<P> implements Node<P> {
+    public static class SLLNode<P> implements Node<P> {
 
         // Holds the links to the needed nodes
         SLLNode<P> parent, sibling, firstChild;
