@@ -18,6 +18,13 @@ public class AdjacencyListGraph<T> {
      */
     private Map<T, Map<T, Integer>> adjacencyList;
 
+    public Map<T, Map<T, Integer>> getAdjacencyList() {
+        return adjacencyList;
+    }
+
+    public void setAdjacencyList(Map<T, Map<T, Integer>> adjacencyList) {
+        this.adjacencyList = adjacencyList;
+    }
 
     public AdjacencyListGraph() {
         adjacencyList = new HashMap<>();
