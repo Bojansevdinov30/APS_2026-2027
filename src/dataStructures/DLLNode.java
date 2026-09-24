@@ -1,9 +1,9 @@
 package dataStructures;
 
 public class DLLNode<E extends Comparable<E>> {
-    protected E element;
-    protected DLLNode<E> pred;
-    protected DLLNode<E> succ;
+    public E element;
+    public DLLNode<E> pred;
+    public DLLNode<E> succ;
     // staveno e zaradi zadaca 5 od Auds1 - brisenje na duplikati
     protected int numAppearances;
 

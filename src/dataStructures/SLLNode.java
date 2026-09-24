@@ -1,8 +1,8 @@
 package dataStructures;
 
 public class SLLNode<E> {
-    protected E element;
-    protected SLLNode<E> succ; // SE E PO REFERENCA
+    public E element;
+    public SLLNode<E> succ; // SE E PO REFERENCA
 
     public SLLNode(E element, SLLNode<E> succ) {
         this.element = element;

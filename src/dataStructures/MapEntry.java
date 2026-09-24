@@ -2,8 +2,8 @@ package dataStructures;
 
 public class MapEntry<K extends Comparable<K>, E> implements Comparable<K> {
     //Секоj MapEntry обjект е пар од клуч и вредност.
-    K key;
-    E value;
+    public K key;
+    public E value;
 
     public MapEntry(K key, E val) {
         this.key = key;
