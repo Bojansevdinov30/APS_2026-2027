@@ -9,7 +9,7 @@ public class OBHT<K extends Comparable<K>, E> {
     //buckets[b] е претходно зафатена ако во „кофичката” b имало претходно
     // елемент коj е избришан и моментално нема елемент во оваа „кофичка”.
 
-    static final int NONE = -1; //... различно од било коj индекс на „кофичка”.
+    public static final int NONE = -1; //... различно од било коj индекс на „кофичка”.
 
     private static final MapEntry former = new MapEntry(null, null);
     //Ова гарантира дека за било коj елемент e e.key.equals(former.key) е false.

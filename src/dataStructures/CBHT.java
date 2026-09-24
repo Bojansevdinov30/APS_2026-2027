@@ -5,6 +5,14 @@ public class CBHT<K extends Comparable<K>, E> {
     // себе чуваат MapEntry обjекти.
     private SLLNode<MapEntry<K, E>>[] buckets;
 
+    public SLLNode<MapEntry<K, E>>[] getBuckets() {
+        return buckets;
+    }
+
+    public void setBuckets(SLLNode<MapEntry<K, E>>[] buckets) {
+        this.buckets = buckets;
+    }
+
     @SuppressWarnings("unchecked")
     public CBHT(int m) {
         //Креира празна хеш табела со m „кофички”.

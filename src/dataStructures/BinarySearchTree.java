@@ -178,5 +178,17 @@ public class BinarySearchTree<E extends Comparable<E>> {
         // Start the inorder traversal from the root of the tree.
         inorder(root, sortedInorder);
     }
+
+    public int findHigher(BNode<Integer> node, int childId) {
+        if (node == null) {
+            return 0;
+        }
+        if (node.info > childId) {
+            return 1 + findHigher(node.left, childId) + findHigher(node.right, childId);
+        } else {
+            return 0 + findHigher(node.left, childId) + findHigher(node.right, childId);
+        }
+    }
+
 }
 

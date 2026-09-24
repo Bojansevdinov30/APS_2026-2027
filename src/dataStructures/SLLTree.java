@@ -26,6 +26,30 @@ public class SLLTree<E> implements Tree<E> {
         public void setElement(P o) {
             element = o;
         }
+
+        public SLLNode<P> getParent() {
+            return parent;
+        }
+
+        public void setParent(SLLNode<P> parent) {
+            this.parent = parent;
+        }
+
+        public SLLNode<P> getSibling() {
+            return sibling;
+        }
+
+        public void setSibling(SLLNode<P> sibling) {
+            this.sibling = sibling;
+        }
+
+        public SLLNode<P> getFirstChild() {
+            return firstChild;
+        }
+
+        public void setFirstChild(SLLNode<P> firstChild) {
+            this.firstChild = firstChild;
+        }
     }
 
     protected SLLNode<E> root;

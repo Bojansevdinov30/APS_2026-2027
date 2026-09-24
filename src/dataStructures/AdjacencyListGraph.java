@@ -535,4 +535,31 @@ public class AdjacencyListGraph<T> {
         }
     }
 
+    public int findConnectedCities() {
+        Set<T> visited = new HashSet<>();
+        int count = 0;
+
+        for (T teme : adjacencyList.keySet()) {
+            if (!visited.contains(teme)) {
+                DFSUtil(teme, visited);
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public int findGroups() {
+        Set<T> set = new HashSet<>();
+        int count = 0;
+        for(T vertex : adjacencyList.keySet()) {
+            if(!set.contains(vertex)) {
+                count++;
+                DFSUtil(vertex, set);
+            }
+        }
+        return count;
+    }
+
+
 }

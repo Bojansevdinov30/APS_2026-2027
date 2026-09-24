@@ -221,4 +221,59 @@ public class BTree<E> {
         return sumNumbers(node.left, currentNumber)
                 + sumNumbers(node.right, currentNumber);
     }
+
+    // Helper function to find the LCA
+    public static BNode<String> findLCA(BNode<String> root, String n1, String n2) {
+        if (root == null) return null;
+
+        // If either node matches the root, this is part of the LCA path
+        if (root.info.equals(n1) || root.info.equals(n2)) {
+            return root;
+        }
+
+        // Recurse for left and right subtrees
+        BNode<String> leftLCA = findLCA(root.left, n1, n2);
+        BNode<String> rightLCA = findLCA(root.right, n1, n2);
+
+        // If both subtrees return non-null, this is the LCA
+        if (leftLCA != null && rightLCA != null) {
+            return root;
+        }
+
+        // Otherwise, propagate non-null result upwards
+        return (leftLCA != null) ? leftLCA : rightLCA;
+    }
+
+    // Helper function to find the distance from a node to a target
+    public static int findDistance(BNode<String> root, String target, int distance) {
+        if (root == null) return -1;
+
+        if (root.info.equals(target)) return distance;
+
+        int leftDist = findDistance(root.left, target, distance + 1);
+        if (leftDist != -1) return leftDist;
+
+        return findDistance(root.right, target, distance + 1);
+    }
+
+    public void makeRootNode(BNode<E> node) {
+        root = node;
+    }
+
+    public BNode<E> addChildNode(BNode<E> node, int where, BNode<E> tmp) {
+
+        if (where == BNode.LEFT) {
+            if (node.left != null)  // veke postoi element
+                return null;
+            node.left = tmp;
+        } else {
+            if (node.right != null) // veke postoi element
+                return null;
+            node.right = tmp;
+        }
+
+        return tmp;
+    }
+
+
 }

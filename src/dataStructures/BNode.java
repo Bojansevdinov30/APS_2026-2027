@@ -15,6 +15,12 @@ public class BNode<E> {
         this.parent = null;
     }
 
+    public BNode() {
+        this.info = null;
+        left = null;
+        right = null;
+    }
+
     public BNode(E info, BNode<E> left, BNode<E> right) {
         this.info = info;
         this.left = left;
